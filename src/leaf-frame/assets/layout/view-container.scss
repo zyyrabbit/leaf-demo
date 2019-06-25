@@ -2,27 +2,26 @@
   min-height: 100%;
   overflow-y: auto;
   &-head {
-   
-      display: flex;
-      flex-direction: column;
-      background-color: $leaf-primary-color-white;
-      line-height: 50px;
+    display: flex;
+    flex-direction: column;
+    background-color: $leaf-primary-color-white;
+    line-height: 50px;
 
-      &-info,
-      &--meta {
-        display: inline-block;
-        width: 100%;
-      }
+    &-info,
+    &--meta {
+      display: inline-block;
+      width: 100%;
+    }
 
-      &-info {
-        &--title {
-          float: left;
-          padding-left: 16px;
-        }
-        &--cont {
-          float: right;
-        }
+    &-info {
+      &--title {
+        float: left;
+        padding-left: 16px;
       }
+      &--cont {
+        float: right;
+      }
+    }
     
   
     .el-breadcrumb {

@@ -96,7 +96,7 @@ module.exports = {
     loaderOptions: {
       sass: {
         implementation: require('sass'),
-        data: `@import "@/assets/variables.scss";`,
+        data: `@import "leaf-frame/assets/_variables.scss"; @import "@/assets/variables.scss";`
       },
     },
   },

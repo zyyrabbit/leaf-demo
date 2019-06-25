@@ -226,7 +226,7 @@ export default class GeneralInfo extends Vue {
         display: block;
         width: 72px;
         height: 72px;
-       // background: $leaf-dashboard-background;
+        background: $leaf-dashboard-background;
         background-repeat: none;
         background-size: contain;
       }
