@@ -3,7 +3,7 @@ import './assets/index.scss';
 // 以下框架外部链接
 import '@/assets/index.scss';
 import variables from '@/assets/variables.scss';
-import HeaderItems from '@/components/_HeaderItems.vue';
+import HeaderItems from '@/components/HeaderItems.vue';
 import setting from '@/../leaf-setting';
 
 import {
@@ -67,11 +67,11 @@ export class Leaf {
     const extSvgs = require.context('@/assets/svg', true, /\.svg$/);
     this.registerSvg(extSvgs); 
 
-     // 自动加载utils,如果文件名带下划线，则不提取
+     // 自动加载utils, 如果文件名带下划线，则不提取
     const extUtils = require.context('@/utils', true, /\/[^_][^\/]*\.ts$/);
     this.registerUtils(extUtils); 
 
-    // 自动加载registerComponents
+    // 自动加载全局组件
     const extComps = require.context('@/components', true, /\/[^_][^\/]*\.vue$/);
     this.registerComps(extComps);
 

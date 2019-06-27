@@ -11,9 +11,23 @@ export default function globalMixin() {
 
   prototype.registerUtils = function(extUtils: any) {
     let utils = {};
+    let temp: any;
+    let name: string;
     extUtils.keys().forEach(v => {
-      utils = { ...utils, ...extUtils(v) };
+      temp = { ...extUtils(v) };
+      // 处理default情况
+      if(temp.default) {
+        name = temp.default.name;
+        if (!name) {
+          console.error('全局注册的util, export default 导出函数必须为命名函数!');
+          return;
+        }
+        temp[name] = temp.default;
+        delete temp.default;
+      }
+      utils = { ...utils, ...temp };
     });
+    
     prototype.utils = {
       ...prototype.utils,
       ...utils
