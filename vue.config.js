@@ -34,7 +34,7 @@ module.exports = {
       config
         .plugin('extract-css')
         .tap(args => [
-          { filename: 'static/desktop/css/[name].[contenthash:8].css' },
+          { filename: 'static/css/[name].[contenthash:8].css' },
         ]);
       config.optimization.merge({
         splitChunks: {
@@ -71,7 +71,7 @@ module.exports = {
   productionSourceMap: false,
   outputDir: 'dist',
   baseUrl: '/',
-  assetsDir: isProd ? 'static/desktop' : '',
+  assetsDir: isProd ? 'static' : '',
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     hot: true,
@@ -83,11 +83,11 @@ module.exports = {
     },
     proxy: {
       '/static/index': {
-        target: 'http://192.168.90.98:8500', // 测试环境-user
+        target: 'http://www.baidu.com', // 测试环境-user
       },
       '/': {
         ws: false,
-        target: 'http://10.142.90.86:8888', // 开发环境-user
+        target: 'http://www.baidu.com', // 开发环境-user
         changeOrigin: true,
       }
     },

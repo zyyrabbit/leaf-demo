@@ -1,4 +1,4 @@
-import HeaderItems from './HeaderItems.vue';
+import CountTo from './Count/CountTo.vue';
 export {
-  HeaderItems
+  CountTo
 }

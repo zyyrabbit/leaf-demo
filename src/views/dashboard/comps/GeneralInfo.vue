@@ -124,8 +124,12 @@
 import  *  as HTTP_GENERAL from '@/mocks/dashboard.ts';
 import G2 from '@antv/g2';
 import { Component, Vue } from 'vue-property-decorator';
-
-@Component
+import { CountTo } from '@/components/';
+@Component({
+  components: {
+    CountTo
+  }
+})
 export default class GeneralInfo extends Vue {
   private get loginUserName() {
     return 'user_name';

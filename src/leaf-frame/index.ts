@@ -1,6 +1,11 @@
-import 'element-ui/lib/theme-chalk/index.css';
-import './assets/index.scss';
 import Vue from 'vue';
+import './assets/index.scss';
+import '@/assets/index.scss';
+import variables from '@/assets/variables.scss';
+import HeaderItems from '@/components/HeaderItems.vue';
+import setting from '@/../leaf-setting';
+import * as utils from '@/utils';
+
 import {
   storeMixin,
   routerMixin,
@@ -13,70 +18,96 @@ import App from './App.vue';
 import { LeafType, obj } from './leaf';
 
 export class Leaf {
-  public _router: any;
-  public _stores: any;
-  public _utils!: obj;
-  public _http!: obj;
-  public _menuData!: [];
-  public _headerSlot!: obj;
+
+  public router: any;
+  public stores: any;
+  public utils!: obj;
+  public http!: obj;
+  public menuData!: [];
+  public headerSlot!: obj;
 
 
   constructor() {
+    // leaf对象prototype扩展
     storeMixin();
     routerMixin();
     componentMixin();
     svgMixin();
     globalMixin();
     vueMixin();
-
+    // 初始化
     this._init();
   }
-  
-  public frameSet(this: LeafType, options: any = {}) {
-    let {
-      module, 
-      routers,
-      svgs, 
-      menuData = [], 
-      mixins,
-      variables = {},
-      utils,
-      headerSlot,
-      setting = {}
-   } = options;
-    this._registerModule(module);
-    this._registerRouter(routers);
-    this._registerSvg(svgs);
-    this._mixin(mixins);
-    this._mixinUtils(utils);
-    // 设置菜单数据
-    this._menuData = menuData;
+  /**
+   *
+   * Leaf 对象初始化函数
+   * @private
+   * @param {LeafType} this
+   * @memberof Leaf
+   */
+  private _init(this: LeafType) {
+    this._storeInit();
+    this._routerInit();
+    this._componentInit();
+    this._svgInit();
+    this._vueInit();
+    this._depInit();
+  }
+
+  private _depInit(this: LeafType) {
+    // 自动加载路由
+    const routers = require.context('@/views', true, /\.router\.ts$/);
+    this.registerRouter(routers);
+
+    // 自动加载svg
+    const extSvgs = require.context('@/assets/svg', true, /\.svg$/);
+    this.registerSvg(extSvgs);
+
+    // 自动加载store module
+    const module = require.context('@/views', true, /\.module\.js$/);
+    this.registerModule(module);
+
+    // 加载utils
+    this.mixinUtils(utils);
+
     // 引入主题
-    this._stores.dispatch('theme/setTheme', variables.theme);
+    this.stores.dispatch('theme/setTheme', variables.theme);
     // 设置
-    this._stores.dispatch('setting/setSetting', setting);
+    this.stores.dispatch('setting/setSetting', setting);
     // 插入头部item
-    this._headerSlot = headerSlot;
+    this.headerSlot = HeaderItems;
   }
-
-  public run() {
-    new Vue({
-      router: this._router,
-      store: this._stores,
+  /**
+   * 反向注册
+   * @param this 
+   * @param options 
+   */
+  public register(this: LeafType, options: obj = {}) {
+    let {
+      beforeCreate,
+      created,
+      mounted,
+      httpConfig,
+   } = options;
+    this.setHttpConfig(httpConfig);
+    // 生命周期钩子函数
+    this.beforeCreate = beforeCreate;
+    this.created = created;
+    this.mounted = mounted;
+  }
+  /**
+   * 启动项目
+   */
+  public async run(this: LeafType) {
+    this.beforeCreate && await this.beforeCreate(this);
+    let vueInstance: any = new Vue({
+      router: this.router,
+      store: this.stores,
       render: h => h(App),
-    }).$mount('#leaf-app');
-  }
-
-  public _mixin(mixins: [] = []) {
-    mixins.forEach((item: any) => Vue.mixin(item));
-  }
-
-  private _init(this: any) {
-    this._storeHandler();
-    this._routerHandler();
-    this._componentHandler();
-    this._svgHandler();
-    this._vueHandler();
+    });
+    this.created && await this.created(this, vueInstance);
+    vueInstance.$mount('#leaf-app');
+    this.mounted && await this.mounted(this, vueInstance);
   }
 
 }

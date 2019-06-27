@@ -108,13 +108,13 @@
             </template>
           </el-table-column>
         </el-table>
-        <el-pagination
+       <!--  <el-pagination
           v-if="pageTotal > 10"
           @current-change="val => onPageChange('pageNum', val)"
           @size-change="val => onPageChange('pageSize', val)"
           :current-page="page.pageNum"
           :total="pageTotal"
-        ></el-pagination>
+        ></el-pagination> -->
       </div>
     </el-card>
   </view-container>

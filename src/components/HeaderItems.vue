@@ -1,7 +1,7 @@
 <template>
   <div class="item-group">
     <div class="item" title="用户名称">
-      <span class="el-dropdown-link">您好，Leaf</span>
+      <span class="el-dropdown-link">您好，Leaf123</span>
     </div>
     <div class="item menu-hover"  title="修改密码">
       <span class="el-dropdown-link">修改密码</span>

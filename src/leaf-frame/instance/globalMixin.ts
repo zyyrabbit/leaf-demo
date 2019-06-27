@@ -1,24 +1,32 @@
 import { Leaf } from '../index';
 import * as utils from '../utils';
-import http from '../http';
+import http, { handlers } from '../http/';
 
 export default function globalMixin() {
-  Leaf.prototype._utils = utils;
-  Leaf.prototype._http = http;
-
   const prototype = Leaf.prototype as any;
 
-  prototype._mixinUtils = function(mixinUtils: object = {}) {
-    prototype._utils = {
-      ...prototype._utils,
+  prototype.utils = utils;
+  prototype.http = http;
+  prototype._handlers = handlers;
+
+  prototype.mixinUtils = function(mixinUtils: object = {}) {
+    prototype.utils = {
+      ...prototype.utils,
       ...mixinUtils
     }
   }
 
-  prototype._setHttpConfig = function(httpConfig: object = {}) {
-    prototype._http.defaults = {
-      ...prototype._http.defaults,
-      ...httpConfig
+  prototype.setHttpConfig = function(httpConfig: { config: object, handler:  object} = {} as any) {
+    let { config, handler } = httpConfig
+    prototype.http.defaults = {
+      ...prototype.http.defaults,
+      ...config
+    }
+
+    prototype._handlers =  {
+      ...prototype._handlers,
+      ...handler
     }
   }
+
 }

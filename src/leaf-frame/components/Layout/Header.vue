@@ -38,14 +38,14 @@
     }
 
     private created(this: any) {
-      if (this._leaf._headerSlot) {
-        let vnode = this.$createElement(this._leaf._headerSlot);
+      if (this.$leaf.headerSlot) {
+        let vnode = this.$createElement(this.$leaf.headerSlot);
         this.$slots.default = [vnode];
       }
     }
 
     private changeTheme(val: string) {
-      this._leaf._stores.dispatch('theme/setTheme', val);
+      this.$leaf.stores.dispatch('theme/setTheme', val);
     }
   }
 </script>

@@ -87,13 +87,12 @@ import RunnigDesktopChart from './comps/RunnigDesktopChart.vue';
 import QuotaChart from './comps/QuotaChart.vue';
 import FlavorChart from './comps/FlavorChart.vue';
 import GeneralInfo from './comps/GeneralInfo.vue';
-
 @Component({
   components: {
     RunnigDesktopChart,
     QuotaChart,
     FlavorChart,
-    GeneralInfo,
+    GeneralInfo
   },
 })
 export default class Index extends Vue {

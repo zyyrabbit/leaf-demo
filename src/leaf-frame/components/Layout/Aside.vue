@@ -34,8 +34,6 @@ export default class AsideWrapper extends Vue {
   @Getter('menu/menuTree')
   public menuList!: MenuVO[];
 
-  @Action('menu/setActiveMenu')
-  public setActiveMenu!: Function;
 
   @Getter('theme/theme')
   public theme!: string;
@@ -46,7 +44,6 @@ export default class AsideWrapper extends Vue {
 
   public onSelect(item: MenuVO) {
     this.$emit('click');
-    this.setActiveMenu(item);
   }
 }
 </script>

@@ -1,7 +1,6 @@
 {
-  "name": "yun-desktop",
+  "name": "leaf",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -14,7 +13,7 @@
     "date-fns": "^1.29.0",
     "element-ui": "2.4.11",
     "fastclick": "^1.0.6",
-    "leaf-frame": "^1.0.1",
+    "leaf-frame": "^1.0.4",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",

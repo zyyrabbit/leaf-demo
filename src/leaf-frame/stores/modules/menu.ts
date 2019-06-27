@@ -1,19 +1,16 @@
 import * as types from '../mutation-types';
-import { getActiveMenuListByPath } from '../../utils/index';
 
 interface MenuVo {
-  menuTree?: object[];
+  menuTree?: object[] | null;
   toName?: string;
   path?: string;
   fromName?: string;
   isCollapse?: boolean;
-  activeMenu?: MenuVo;
 }
 
 const state: MenuVo = {
-  menuTree: [],
+  menuTree: null,
   isCollapse: false,
-  activeMenu: undefined,
 };
 
 const actions = {
@@ -22,10 +19,7 @@ const actions = {
   },
   setCollapse({ commit }: any, data: boolean) {
     commit(types.MENU_COLLAPSE_SET, data);
-  },
-  setActiveMenu({ commit }: any, data: number) {
-    commit(types.ACTIVE_MENU_SET, data);
-  },
+  }
 };
 
 const mutations = {
@@ -37,24 +31,15 @@ const mutations = {
     if (state.menuTree === undefined) {
       return;
     }
-    let activeMenuList = getActiveMenuListByPath(state.menuTree, state.path);
-    if (activeMenuList && activeMenuList.length > 0) {
-      // 只pop最末级菜单
-      state.activeMenu = activeMenuList.pop();
-    }
   },
   [types.MENU_COLLAPSE_SET](state: MenuVo, data: boolean) {
     state.isCollapse = data;
-  },
-  [types.ACTIVE_MENU_SET](state: MenuVo, data: MenuVo) {
-    state.activeMenu = data;
   },
 };
 
 const getters = {
   menuTree: (state: MenuVo) => state.menuTree,
   isCollapse: (state: MenuVo) => state.isCollapse,
-  activeMenu: (state: MenuVo) => state.activeMenu,
 };
 
 export default {

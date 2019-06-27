@@ -4,17 +4,17 @@ import stores from '../store';
 export default function storeMixin() {
   let prototype = Leaf.prototype as any;
 
-  prototype._storeHandler = function(this: any) {
-    this._stores = stores;
+  prototype._storeInit = function(this: any) {
+    this.stores = stores;
   }
 
-  prototype._registerModule = function(module: any = {}) {
+  prototype.registerModule = function(module: any = {}) {
     let modules: any = {};
     module.keys().forEach(v => {
       modules = { ...modules, ...module(v) };
     });
     Object.keys(modules).forEach((key: string) => {
-      this._stores.registerModule(key, modules[key])
+      this.stores.registerModule(key, modules[key])
     })
   }
 }

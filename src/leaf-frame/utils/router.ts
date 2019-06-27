@@ -1,5 +1,4 @@
 import { RouteConfig } from 'vue-router/types/router';
-import { getTreePath } from './traversePath';
 
 type AuthMap = { [index: string]: boolean };
 type nodeType = {
@@ -23,34 +22,6 @@ export function flatMenu(root: nodeType): AuthMap {
   return result;
 }
 
-// 根据router.path 获取当前菜单
-export const getActiveMenuListByPath = function(
-  menuTree: any,
-  pathStr?: string,
-) {
-  if (!pathStr) {
-    return;
-  }
-
-  let routerNameArr = pathStr.split('/'); // 路由列表，['一级路由','二级路由']
-  routerNameArr = routerNameArr.filter(x => {
-    return x != '';
-  });
-  // 从后向前遍历路由，如果当前 router.name 匹配不到，匹配上一级路由
-  for (let i = routerNameArr.length - 1; i >= 0; i--) {
-    let activeMenu = getTreePath(
-      menuTree,
-      'items',
-      'urlAddr',
-      routerNameArr[i],
-      false,
-    );
-    if (activeMenu.length > 0) {
-      return activeMenu;
-    }
-  }
-};
-
 function createPermissionsRoute(menus: []): AuthMap {
   let authMap: AuthMap = {
     login: true,
@@ -66,7 +37,7 @@ function createPermissionsRoute(menus: []): AuthMap {
   return authMap;
 }
 
-export function getPriRoute(root: RouteConfig, menus: []): RouteConfig[] {
+export default function getPriRoute(root: RouteConfig, menus: [] = []): RouteConfig[] {
   let authMap: AuthMap = createPermissionsRoute(menus);
   let result: RouteConfig[] = [];
 
