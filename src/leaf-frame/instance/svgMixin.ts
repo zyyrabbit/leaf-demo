@@ -9,7 +9,7 @@ export default function svgMixin() {
     importSvgIcons(svgs);
   }
 
-  prototype.registerSvg = function(svgs: any = {}) {
+  prototype.registerSvg = function(svgs: any) {
     importSvgIcons(svgs);
   }
 }

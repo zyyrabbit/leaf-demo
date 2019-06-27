@@ -9,15 +9,20 @@ export default function globalMixin() {
   prototype.http = http;
   prototype._handlers = handlers;
 
-  prototype.mixinUtils = function(mixinUtils: object = {}) {
+  prototype.registerUtils = function(extUtils: any) {
+    let utils = {};
+    extUtils.keys().forEach(v => {
+      utils = { ...utils, ...extUtils(v) };
+    });
     prototype.utils = {
       ...prototype.utils,
-      ...mixinUtils
+      ...utils
     }
   }
 
   prototype.setHttpConfig = function(httpConfig: { config: object, handler:  object} = {} as any) {
-    let { config, handler } = httpConfig
+    let { config, handler } = httpConfig;
+
     prototype.http.defaults = {
       ...prototype.http.defaults,
       ...config

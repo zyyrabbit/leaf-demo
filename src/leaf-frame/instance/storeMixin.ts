@@ -8,7 +8,7 @@ export default function storeMixin() {
     this.stores = stores;
   }
 
-  prototype.registerModule = function(module: any = {}) {
+  prototype.registerModule = function(module: any) {
     let modules: any = {};
     module.keys().forEach(v => {
       modules = { ...modules, ...module(v) };

@@ -124,7 +124,7 @@
 import  *  as HTTP_GENERAL from '@/mocks/dashboard.ts';
 import G2 from '@antv/g2';
 import { Component, Vue } from 'vue-property-decorator';
-import { CountTo } from '@/components/';
+import  CountTo  from './count/CountTo.vue';
 @Component({
   components: {
     CountTo

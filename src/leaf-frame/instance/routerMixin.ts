@@ -26,10 +26,8 @@ export default function routerMixin() {
       }
       this.stores.dispatch('container/createLoading'); 
       // 判断页面是否404
-      if (to.matched.length === 0) {
-        next({
-          name: '404',
-        });
+      if (to.name !== '404' && to.matched.length === 0) {
+        next({ name: '404' });
         return;
       }
       next();
@@ -49,7 +47,7 @@ export default function routerMixin() {
   }
   
   // 加载路由
-  prototype.registerRouter = function(routers: any = {}) {
+  prototype.registerRouter = function(routers: any) {
     let routes: RouteConfig[] = [];
 
     routers.keys().forEach((v: string) => {

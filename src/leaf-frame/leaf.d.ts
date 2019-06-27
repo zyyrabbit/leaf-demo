@@ -11,7 +11,8 @@ export interface LeafType {
   registerRouter: (routers: obj) => void;
   registerModule: (module: obj) => void;
   registerSvg: (svgs: obj) => void;
-  mixinUtils: (mixinUtils: obj) => void;
+  registerUtils: (extUtils: obj) => void;
+  registerComps: (extComps: obj) => void;
   setHttpConfig: (httpConfig: obj) => void;
   run: handler;
   register: (options: obj) => void;

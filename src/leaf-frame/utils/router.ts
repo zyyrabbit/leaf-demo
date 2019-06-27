@@ -23,6 +23,7 @@ export function flatMenu(root: nodeType): AuthMap {
 }
 
 function createPermissionsRoute(menus: []): AuthMap {
+  // 默认白名单
   let authMap: AuthMap = {
     login: true,
     500: true,
