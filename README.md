@@ -1,3 +1,3 @@
-# desktop-user
+# leaf-frame
 
-服务[desktopuser]的仓库
+服务[leaf-frame]的仓库
