@@ -46,7 +46,7 @@ export default {
 			"menuDesc": "基础表单",
 			"urlAddr": "basic-form"
 		},{
-			"hasChildren": true,
+			"hasChildren": false,
 			"sysRolePrivilege": null,
 			"items": null,
 			"funcCompList": null,

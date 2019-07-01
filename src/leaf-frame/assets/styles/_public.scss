@@ -1,0 +1,21 @@
+.leaf-text-align-right {
+  text-align: right;
+}
+
+.leaf-float-left {
+  float: left;
+}
+
+.leaf-float-right {
+  float: right;
+}
+
+.leaf-clearfix:before,
+.leaf-clearfix:after {
+    display: table;
+    content: "";
+}
+
+.leaf-clearfix:after {
+    clear: both
+}

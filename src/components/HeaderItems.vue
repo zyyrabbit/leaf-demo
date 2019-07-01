@@ -6,7 +6,7 @@
     <div class="item menu-hover"  title="修改密码">
       <span class="el-dropdown-link">修改密码</span>
     </div>
-    <div class="item menu-hover"  title="退出登录">
+    <div class="item menu-hover" @click="loginOut" title="退出登录">
       <span class="el-dropdown-link">退出</span>
     </div>
     <div class="item menu-hover" title="工单详情">
@@ -63,6 +63,11 @@ export default class HeaderItems extends Vue {
     ]
   private select(val: string) {
     console.log(val);
+  }
+
+  private loginOut() {
+    this.$leaf.utils.cookie.set('isAuth', false);
+    this.$router.push({ name: 'login'});
   }
 }
 </script>

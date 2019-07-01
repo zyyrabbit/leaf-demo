@@ -1,5 +1,5 @@
 export default {
-  title: 'Leaf Demo', // 标题
+  title: 'Leaf-Demo', // 标题
 
   slider: true, // 侧边栏
 

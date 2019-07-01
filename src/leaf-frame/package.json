@@ -1,0 +1,24 @@
+{
+  "name": "leaf-frame",
+  "version": "1.0.6",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "date-fns": "^1.29.0",
+    "ctg-components": "^1.0.5",
+    "element-ui": "2.4.11",
+    "fastclick": "^1.0.6",
+    "vue": "^2.5.17",
+    "vue-class-component": "^6.0.0",
+    "vue-property-decorator": "^7.0.0",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "vuex-class": "^0.3.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

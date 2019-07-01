@@ -37,6 +37,7 @@
 import { Action} from 'vuex-class';
 import { Component, Vue } from 'vue-property-decorator';
 
+
 @Component
 export default class Login extends Vue {
   private loginForm = {
@@ -46,8 +47,9 @@ export default class Login extends Vue {
 
   private loading = false;
 
-  private onLogin() {
-    
+  private async onLogin() {
+    this.$leaf.utils.cookie.set('isAuth',  true);
+    this.$router.push({name: 'dashboard'});
   }
 }
 </script>

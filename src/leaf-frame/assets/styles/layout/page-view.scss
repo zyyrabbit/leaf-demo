@@ -1,0 +1,38 @@
+.leaf-page-view {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  background-color: $leaf-basic-background-color;
+  overflow: hidden;
+
+  &__content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: $leaf-header-height;
+    left: $leaf-aside-menu-width;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    .spin {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%) scale(1.2);
+    }
+
+    &.is-wide {
+      left: $leaf-aside-menu-collapse-width;
+    }
+
+    &.is-no-slider {
+      left: 0;
+    }
+  }
+
+  &--mask {
+    display: none;
+  }
+}
