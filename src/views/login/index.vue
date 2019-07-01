@@ -37,7 +37,6 @@
 import { Action} from 'vuex-class';
 import { Component, Vue } from 'vue-property-decorator';
 
-
 @Component
 export default class Login extends Vue {
   private loginForm = {

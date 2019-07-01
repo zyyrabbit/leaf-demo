@@ -52,18 +52,7 @@ module.exports = {
           },
         },
       });
-      config.plugin('copy').tap(args => {
-        args[0][0].ignore = args[0][0].ignore.concat([
-          'static/index/*/**',
-          'index.html',
-        ]);
-        return args;
-      });
     }
-    config.plugin('html').tap(args => {
-      args[0].filename = 'index.html';
-      return args;
-    });
     config.plugins.delete('prefetch');
     config.plugins.delete('preload');
     config.plugins.delete('fork-ts-checker');
@@ -83,11 +72,11 @@ module.exports = {
     },
     proxy: {
       '/static/index': {
-        target: 'http://www.baidu.com', // 测试环境-user
+        target: 'http://www.baidu.com', // 测试环境
       },
       '/': {
         ws: false,
-        target: 'http://www.baidu.com', // 开发环境-user
+        target: 'http://www.baidu.com', // 开发环境
         changeOrigin: true,
       }
     },

@@ -1,4 +1,4 @@
-import leaf from './leaf-frame';
+import leaf from 'leaf-frame';
 import mockMenu from '@/mocks/func-menu.ts';
 
 // 启动应用
