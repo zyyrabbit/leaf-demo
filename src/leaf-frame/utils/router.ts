@@ -36,13 +36,6 @@ function createPermissionsRoute(menus: []): AuthMap {
     };
   });
   return authMap;
- // 预处理
- /*  return function matchFn(routeStr: string = ''): boolean {
-    // 输入字符串预处理，只取出一级路由
-    let rst = routeStr.match(/^\/([^\/?]+)/);
-    rst && (routeStr = rst[1]);
-    return authMap[routeStr];
-  }; */
 }
 
 export default function getPriRoute(root: RouteConfig, menus: [] = []): RouteConfig[] {

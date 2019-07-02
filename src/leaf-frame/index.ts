@@ -76,7 +76,7 @@ export class Leaf {
     this.stores.dispatch('setting/setSetting', setting);
   }
  
-  public register(options: obj = {}) {
+  public setUp(options: obj = {}) {
     let {
       beforeCreate,
       created,

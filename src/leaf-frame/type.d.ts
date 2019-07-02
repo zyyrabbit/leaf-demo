@@ -10,7 +10,7 @@ export interface Leaf {
   http: obj;
   headerSlot: obj;
   run: handler;
-  register: (options: obj) => void;
+  setUp: (options: obj) => void;
   registerComps(extcomps: any): void;
   registerRouter(routers: obj): void;
   registerModule(module: obj): void;
@@ -43,5 +43,3 @@ declare module './index' {
     _handlers: obj; */
   }
 }
-
-export type Instance = typeof Leaf;

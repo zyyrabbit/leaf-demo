@@ -30,7 +30,7 @@ export default {
 		"menuDesc": "表单页面",
 		"urlAddr": "",
 		"items": [{
-			"hasChildren": false,
+			"hsaChildren": false,
 			"sysRolePrivilege": null,
 			"items": null,
 			"funcCompList": null,
