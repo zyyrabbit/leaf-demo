@@ -85,7 +85,7 @@ module.exports = {
     loaderOptions: {
       sass: {
         implementation: require('sass'),
-        data: `@import "@/@leafs/app/assets/styles/_variables.scss";
+        data: `@import "@leafs/app/assets/styles/_variables.scss";
          @import "@/assets/styles/variables.scss";`
       },
     },
