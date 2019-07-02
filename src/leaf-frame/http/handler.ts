@@ -37,7 +37,7 @@ export let handlers: index = {
       type: 'warning',
     });
   },
-  others: (error) => {
+  default: (error) => {
     Message.error(
       (error.response.data && error.response.data.msg) || `服务器异常`,
     );
@@ -49,5 +49,5 @@ export default function handlerMatch(response: any): any {
   let hanlders = leaf._handlers as any;
   let fn = hanlders[response.status];
   let isMatch = fn ? true : false;
-  return isMatch ? fn(response) : hanlders.others(response);
+  return isMatch ? fn(response) : hanlders.default(response);
 }

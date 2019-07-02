@@ -1,8 +1,7 @@
-import leaf from 'leaf-frame';
+import app from 'leaf-frame';
 import mockMenu from '@/mocks/func-menu.ts';
-
 // 启动应用
-leaf.register({
+app.setUp({
   getMenuTree: async () => {
     return await new Promise(resolve => {
       setTimeout(() => {
