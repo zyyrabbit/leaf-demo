@@ -28,7 +28,7 @@ export default class Error extends Vue {
   }
 
   getImgUrl(type: string){
-    return require("@/leaf-frame/assets/img/"+ type + ".png");
+    return require("@/@leafs/app/assets/img/"+ type + ".png");
   }
 
 }

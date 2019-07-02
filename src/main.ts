@@ -1,5 +1,6 @@
-import app from 'leaf-frame';
+import app from '@leafs/app';
 import mockMenu from '@/mocks/func-menu.ts';
+
 // 启动应用
 app.setUp({
   getMenuTree: async () => {

@@ -127,7 +127,7 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class BasicForm extends Vue {
 
-  private basicForm = {
+  private basicForm = { 
       name: '',
       region: '',
       date1: '',
