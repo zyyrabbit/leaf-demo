@@ -7,7 +7,7 @@
       {{message}}
     </div>
     <div class="error__operation">
-      <el-button type="primary" size="small" @click="goDashboard()">返回首页</el-button>
+      <el-button type="primary" size="small" @click="goIndex()">返回首页</el-button>
     </div>
   </div>
 </template>
@@ -21,9 +21,9 @@ export default class Error extends Vue {
   private type!: string;
   @Prop()
   private message!: string;
-  private goDashboard(): void {
+  private goIndex(): void {
     this.$router.push({
-      name: 'dashboard'
+      name: 'index'
     })
   }
 
