@@ -14,7 +14,7 @@ export default {
 		"menuIcon": "cubes",
 		"parMenuId": -1,
 		"menuDesc": "首页",
-		"urlAddr": "dashboard"
+		"urlAddr": "index"
 	},{
 		"hasChildren": true,
 		"funcCompList": null,
