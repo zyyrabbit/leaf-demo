@@ -1,7 +1,7 @@
 <template>
   <div class="error">
     <div class="error__svg">
-      <img :src="getImgUrl(type)" alt="页面访问有误" />
+      <img :src="getImgUrl()" alt="页面访问有误" />
     </div>
     <div class="error__message">
       {{message}}
@@ -13,22 +13,28 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
 @Component
 export default class Error extends Vue {
-  @Prop()
-  private type!: string;
-  @Prop()
-  private message!: string;
+  private type: string = '';
+  private message: string = '';
+
   private goIndex(): void {
     this.$router.push({
       name: 'index'
     })
   }
 
-  getImgUrl(type: string){
-    return require("@leafs/app/assets/img/"+ type + ".png");
+  @Watch('$route', {immediate: true})
+  routeChange(newVal) {
+    let { meta: { message, type } } = newVal;
+    this.message = message;
+    this.type = type;
+  }
+
+  getImgUrl(){
+    return require(`@leafs/app/assets/img/${this.type}.png`);
   }
 
 }

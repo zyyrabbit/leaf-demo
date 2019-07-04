@@ -123,6 +123,8 @@ export default class Index extends Vue {
 </script>
 <style lang="scss" scoped>
 .leaf-home-dashboard {
+  overflow: scroll;
+  height: 100%;
   padding: 20px 16px 16px;
   .header {
     margin-bottom: 15px;

@@ -48,7 +48,7 @@ export default class Login extends Vue {
 
   private async onLogin() {
     this.$leaf.utils.cookie.set('isAuth',  true);
-    this.$router.push({name: 'dashboard'});
+    this.$router.push({name: 'index'});
   }
 }
 </script>

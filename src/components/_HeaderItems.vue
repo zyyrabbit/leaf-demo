@@ -66,7 +66,7 @@ export default class HeaderItems extends Vue {
   }
 
   private loginOut() {
-    this.$leaf.utils.cookie.set('isAuth', false);
+    this.$leaf.utils.cookie.remove('isAuth');
     this.$router.push({ name: 'login'});
   }
 }
