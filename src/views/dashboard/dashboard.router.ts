@@ -4,7 +4,8 @@ export default [
     name: 'index',
     component: () => import('@/views/dashboard/index.vue'),
     meta: {
-      title: '概览',
+      title: '首页',
+      pin: true
     },
   },
 ];
