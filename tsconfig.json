@@ -31,7 +31,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx", "leaf-frame/svgicon.ts", "leaf-frame/store.ts", "leaf-frame/router.ts", "leaf-frame/main.ts", "src/leaf-loader.js"
+    "tests/**/*.tsx",
   ],
   "exclude": [
     "node_modules"
