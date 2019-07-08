@@ -71,9 +71,6 @@ module.exports = {
       errors: true,
     },
     proxy: {
-      '/static/index': {
-        target: 'http://www.baidu.com', // 测试环境
-      },
       '/': {
         ws: false,
         target: 'http://www.baidu.com', // 开发环境

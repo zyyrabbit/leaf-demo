@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@antv/g2": "^3.4.8",
-    "@leafs/app": "0.0.8",
+    "@leafs/app": "0.0.11",
     "@leafs/ui": "^1.0.0",
     "axios": "^0.18.0",
     "date-fns": "^1.29.0",
