@@ -1,13 +1,9 @@
-import app from '@leafs/app';
+import App from '@leafs/app';
 import mockMenu from '@/mocks/func-menu.ts';
 
 // 启动应用
-app.setUp({
+new App({
   getMenuTree: async () => {
-    return await new Promise(resolve => {
-      setTimeout(() => {
-        resolve(mockMenu.data);
-      }, 500);
-    })
+    return mockMenu.data
   }
 }).run('#leaf-app');

@@ -34,7 +34,7 @@ export default class Error extends Vue {
   }
 
   getImgUrl(){
-    return require(`@leafs/app/assets/img/${this.type}.png`);
+    return require(`@/assets/img/${this.type}.png`);
   }
 
 }

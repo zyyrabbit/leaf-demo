@@ -59,7 +59,7 @@ module.exports = {
   },
   productionSourceMap: false,
   outputDir: 'dist',
-  baseUrl: '/',
+  // publicPath: '/',
   assetsDir: isProd ? 'static' : '',
   devServer: {
     contentBase: path.join(__dirname, 'public'),
@@ -73,7 +73,7 @@ module.exports = {
     proxy: {
       '/': {
         ws: false,
-        target: 'http://www.baidu.com', // 开发环境
+        target: 'http://10.142.233.68:8123/mock/64', // 开发环境
         changeOrigin: true,
       }
     },
@@ -82,7 +82,9 @@ module.exports = {
     loaderOptions: {
       sass: {
         implementation: require('sass'),
-        data: `@import "@leafs/app/assets/styles/_variables.scss";
+        data: 
+        `@import "@leafs/app/core/assets/styles/_variables.scss";
+         @import "@leafs/app/ui/default/assets/styles/_variables.scss";
          @import "@/assets/styles/variables.scss";`
       },
     },
