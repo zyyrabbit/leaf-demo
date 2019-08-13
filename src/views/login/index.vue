@@ -47,7 +47,6 @@ export default class Login extends Vue {
   private loading = false;
 
   private async onLogin() {
-    this.$leaf.utils.cookie.set('isAuth',  true);
     this.$router.push({name: 'index'});
   }
 }
@@ -57,9 +56,9 @@ export default class Login extends Vue {
   position: absolute;
   top: 20%;
   right: 40px;
-   padding: 32px;
-    border-radius: 3px;
-    background-color: #fff;
+  padding: 32px;
+  border-radius: 3px;
+  background-color: #fff;
 
   &--caption {
     display: block;

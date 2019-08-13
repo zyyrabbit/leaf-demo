@@ -12,6 +12,11 @@ function recursiveIssuer(m) {
 }
 
 module.exports = {
+  
+  configureWebpack: {
+    name: require('./src/setting.ts').title
+  },
+
   chainWebpack: config => {
     config.module
       .rule('svg')
@@ -59,7 +64,7 @@ module.exports = {
   },
   productionSourceMap: false,
   outputDir: 'dist',
-  // publicPath: '/',
+  baseUrl: '',
   assetsDir: isProd ? 'static' : '',
   devServer: {
     contentBase: path.join(__dirname, 'public'),
@@ -71,9 +76,10 @@ module.exports = {
       errors: true,
     },
     proxy: {
-      '/': {
+      '/demoapp': {
         ws: false,
-        target: 'http://10.142.233.68:8123/mock/64', // 开发环境
+       // target: 'http://192.168.91.5:8123/mock/99', // 开发环境
+        target: 'http://192.168.60.10:20011',
         changeOrigin: true,
       }
     },
@@ -83,9 +89,7 @@ module.exports = {
       sass: {
         implementation: require('sass'),
         data: 
-        `@import "@leafs/app/core/assets/styles/_variables.scss";
-         @import "@leafs/app/ui/default/assets/styles/_variables.scss";
-         @import "@/assets/styles/variables.scss";`
+        `@import "@/assets/style/variables.scss";`
       },
     },
   },

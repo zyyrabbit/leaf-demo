@@ -1,5 +1,5 @@
 <template>
-  <view-container class="leaf-step-form">
+  <div class="leaf-step-form">
 
     <el-row type="flex" justify="center">
       <el-col :xs="20" :md="16">
@@ -52,7 +52,7 @@
           </el-row>
       </el-col>
     </el-row>
-  </view-container>
+  </div>
 </template>
 <script lang="ts">
 import  *  as HTTP_GENERAL from '@/mocks/dashboard.ts';
@@ -100,10 +100,9 @@ export default class StepForm extends Vue {
   private openBtn() {
     this.$dialog({
       title: 'Demo',
-      component: abc,
-      width: '600px',
+      width: '1200px',
       beforeClose: (action, instance, done) => {
-         console.log(action);
+        console.log(action);
         done();
       },
     }).then(action => {

@@ -5,6 +5,7 @@ export default [
     component: () => import('./index.vue'),
     meta: {
       title: '登录页面',
+      layout: 'login'
     },
   }
 ];

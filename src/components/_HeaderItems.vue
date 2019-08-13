@@ -43,6 +43,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { Getter } from 'vuex-class';
+/* import app from '@/apis/app'; */
 
 @Component
 export default class HeaderItems extends Vue {
@@ -65,8 +66,11 @@ export default class HeaderItems extends Vue {
     console.log(val);
   }
 
+  /* async created() {
+    await app.getApp()
+  } */
+
   private loginOut() {
-    this.$leaf.utils.cookie.remove('isAuth');
     this.$router.push({ name: 'login'});
   }
 }

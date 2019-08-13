@@ -1,7 +1,7 @@
 export default [
   {
-    path: '/basic-form',
-    name: 'basic-form',
+    path: '/portal_manage',
+    name: 'portal_manage',
     component: () => import('./basic-form.vue'),
     meta: {
       title: '基础表单',
@@ -9,7 +9,7 @@ export default [
   },
   {
     path: '/step-form',
-    name: 'step-form',
+    name: '/tomcat/resource',
     component: () => import('./step-form.vue'),
     meta: {
       title: '分步表单',

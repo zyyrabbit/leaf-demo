@@ -31,7 +31,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx", "src/@leafs/app/ui/components/layout/default/.layout.ts",
+    "tests/**/*.tsx", "src/b.js", "src/a.js",
   ],
   "exclude": [
     "node_modules"

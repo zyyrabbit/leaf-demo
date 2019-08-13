@@ -1,5 +1,7 @@
 <template>
-  <view-container class="leaf-basic-form">
+  <view-container class="leaf-basic-form" title="基础表单">
+    <div slot="meta">ddddd</div>
+    <svg-icon name="403"></svg-icon>
     <el-row type="flex" justify="center">
       <el-col :xs="20" :md="12">
         <el-form :model="basicForm" label-width="80px">
@@ -112,17 +114,20 @@
             <el-transfer v-model="basicForm.value" :data="data"></el-transfer>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="onSubmit">立即创建</el-button>
+            <el-button type="primary" @click="onSubmit" :style="{'background-color': '#fa8334', border: 'none'}">立即创建</el-button>
             <el-button>取消</el-button>
           </el-form-item>
         </el-form>
       </el-col>
     </el-row>  
+
+     <div slot="footer">ddddd</div>
   </view-container>
 </template>
 <script lang="ts">
 import  *  as HTTP_GENERAL from '@/mocks/dashboard.ts';
 import { Component, Vue } from 'vue-property-decorator';
+import stepForm from './step-form.vue';
 
 @Component
 export default class BasicForm extends Vue {
@@ -165,7 +170,16 @@ export default class BasicForm extends Vue {
   ];
        
   private onSubmit() {
-    console.log('submit!');
+    this.$dialog({
+      title: 'Demo',
+      width: '600px',
+      component: stepForm,
+      beforeClose: (action, instance, done) => {
+        done();
+      },
+    }).then(action => {
+      console.log(action);
+    })
   }
 }
 </script>

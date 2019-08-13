@@ -1,14 +1,14 @@
 {
   "name": "leaf",
-  "version": "0.0.12",
+  "version": "0.1.0",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@leafs/app": "0.0.16",
-    "@leafs/ui": "^1.0.9"
+    "@antv/g2": "^3.4.8",
+    "@leafs/app": "^0.1.24"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0",
@@ -20,6 +20,7 @@
     "sass-loader": "^7.0.1",
     "svg-sprite-loader": "^4.1.3",
     "typescript": "^3.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "webpack-bundle-analyzer": "^3.4.1"
   }
 }
