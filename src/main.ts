@@ -1,6 +1,5 @@
 import App from '@leafs/app';
 import data from './paas/data';
-import loadHead from './paas/head';
 import httpConfig from './paas/htttpConfig';
 
 new App({
@@ -10,7 +9,6 @@ new App({
   },
   getData: async app => {
     let globalData = await data.init(app);
-    loadHead();
     return globalData;
   }
 }).run('#leaf-app');

@@ -3,7 +3,10 @@ import { Message, MessageBox } from 'element-ui';
 let handlers = {
   200: response => response,
   401: (response, app) => {
-    window.location = response.data.loginUrl;
+    app.router.push({
+      name: 'login'
+    })
+   // window.location = response.data.loginUrl;
   },
   402: (response, app) => {
     MessageBox.alert('会话已过期, 请重新登录!', '提示', {
@@ -37,7 +40,7 @@ let handlers = {
 
 export default {
   config: {
-    baseURL: window.paasConfig.serviceUrl,
+   // baseURL: window.paasConfig.serviceUrl,
     withCredentials: true
   },
   handlers,

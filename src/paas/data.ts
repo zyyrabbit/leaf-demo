@@ -36,7 +36,7 @@ async function init(app) {
       }
   
       resolveMenuAndButton(resource, menus, buttons);
- 
+      debugger
       return {
         user,
         menus: menus[0].items,
