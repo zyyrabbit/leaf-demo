@@ -1,6 +1,6 @@
 import App from '@leafs/app';
-import data from './paas/data';
-import httpConfig from './paas/htttpConfig';
+import data from '@/mocks/data';
+import httpConfig from './htttpConfig';
 
 new App({
   theme: 'default',
@@ -8,8 +8,9 @@ new App({
     app.http.config(httpConfig);
   },
   getData: async app => {
-    let globalData = await data.init(app);
-    return globalData;
+    return {
+      menus: data.menus
+    }
   }
 }).run('#leaf-app');
 

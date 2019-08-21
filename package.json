@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "@antv/g2": "^3.4.8",
-    "@leafs/app": "^0.1.24"
+    "@leafs/app": "^0.1.32",
+    "@leafs/ui": "^1.1.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0",

@@ -78,8 +78,7 @@ module.exports = {
     proxy: {
       '/demoapp': {
         ws: false,
-       // target: 'http://192.168.91.5:8123/mock/99', // 开发环境
-        target: 'http://192.168.60.10:20011',
+        target: 'http://192.168.91.5:8123/mock/99',
         changeOrigin: true,
       }
     },

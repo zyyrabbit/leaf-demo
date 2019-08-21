@@ -31,16 +31,13 @@ let handlers = {
     return Promise.reject(response);
   },
   default: (error, app) => {
-   /*  Message.error(
-      (error.data && error.data.msg) || `服务器异常`,
-    );  */
     return Promise.reject(error);
   }
 }
 
 export default {
   config: {
-   // baseURL: window.paasConfig.serviceUrl,
+    baseURL: '/',
     withCredentials: true
   },
   handlers,
