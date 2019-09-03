@@ -21,13 +21,13 @@ module.exports = {
     config.module
       .rule('svg')
       .exclude
-      .add(path.resolve('.'))
+      .add(path.resolve(__dirname, './src/assets/svg/'))
       .end();
     config.module
       .rule('svg-icon')
       .test(/\.svg$/)
       .include
-      .add(path.join(__dirname, '.'))
+      .add(path.resolve(__dirname, './src/assets/svg/'))
       .end()
       .use('svg-sprite-loader')
       .loader('svg-sprite-loader')
